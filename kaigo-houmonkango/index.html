@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>介護保険 訪問看護 料金シミュレーション</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>介護保険 訪問看護 料金シミュレーション</h1>
+    <p class="subtitle">令和6年6月改正対応版</p>
+
+    <p class="description">
+      このページでは、訪問看護ステーションを介護保険で利用した場合の月額利用料（基本料金部分）を確認できます。
+    </p>
+
+    <section class="section">
+      <h2>地域単価を選択してください</h2>
+      <select id="chiiki">
+        <option value="">- 選択してください -</option>
+      </select>
+    </section>
+
+    <section class="section">
+      <h2>負担割合を選択してください</h2>
+      <div class="radio-group" id="futan-group">
+        <label><input type="radio" name="futan" value="1"> 1割</label>
+        <label><input type="radio" name="futan" value="2"> 2割</label>
+        <label><input type="radio" name="futan" value="3"> 3割</label>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>介護度を選択してください</h2>
+      <div class="radio-group" id="kaigodo-group">
+        <label><input type="radio" name="kaigodo" value="yoshien"> 要支援（1〜2）</label>
+        <label><input type="radio" name="kaigodo" value="yokaigo"> 要介護（1〜5）</label>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>利用回数を選択してください</h2>
+      <table class="ryoukin-table">
+        <thead>
+          <tr>
+            <th>項目</th>
+            <th>区分</th>
+            <th>回数</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="4">訪問看護基本料金<br>（看護）</td>
+            <td>20分未満</td>
+            <td><div class="counter" data-key="kango_under20"><button type="button" class="minus">−</button><span class="count">0</span><button type="button" class="plus">＋</button></div></td>
+          </tr>
+          <tr>
+            <td>30分未満</td>
+            <td><div class="counter" data-key="kango_under30"><button type="button" class="minus">−</button><span class="count">0</span><button type="button" class="plus">＋</button></div></td>
+          </tr>
+          <tr>
+            <td>60分未満</td>
+            <td><div class="counter" data-key="kango_under60"><button type="button" class="minus">−</button><span class="count">0</span><button type="button" class="plus">＋</button></div></td>
+          </tr>
+          <tr>
+            <td>90分未満</td>
+            <td><div class="counter" data-key="kango_under90"><button type="button" class="minus">−</button><span class="count">0</span><button type="button" class="plus">＋</button></div></td>
+          </tr>
+          <tr>
+            <td rowspan="3">訪問看護基本料金<br>（リハ）</td>
+            <td>1回（20分）</td>
+            <td><div class="counter" data-key="riha_1"><button type="button" class="minus">−</button><span class="count">0</span><button type="button" class="plus">＋</button></div></td>
+          </tr>
+          <tr>
+            <td>2回（40分）</td>
+            <td><div class="counter" data-key="riha_2"><button type="button" class="minus">−</button><span class="count">0</span><button type="button" class="plus">＋</button></div></td>
+          </tr>
+          <tr>
+            <td>3回（60分）</td>
+            <td><div class="counter" data-key="riha_3"><button type="button" class="minus">−</button><span class="count">0</span><button type="button" class="plus">＋</button></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section result">
+      <table class="result-table">
+        <tr>
+          <th>合計単位数</th>
+          <td><span id="total-units">0</span> 単位</td>
+        </tr>
+        <tr class="total-row">
+          <th>合計（自己負担額）</th>
+          <td><span id="total-yen">0</span> 円</td>
+        </tr>
+      </table>
+    </section>
+
+    <button type="button" id="reset-btn" class="reset-btn">リセット</button>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
