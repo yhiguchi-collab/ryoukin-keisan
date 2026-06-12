@@ -9,10 +9,10 @@
 <body>
   <div class="container">
     <h1>介護保険 訪問看護 料金シミュレーション</h1>
-    <p class="subtitle">令和6年6月改正対応版</p>
+    <p class="subtitle">令和8年6月改定対応版</p>
 
     <p class="description">
-      このページでは、訪問看護ステーションを介護保険で利用した場合の月額利用料（基本料金部分）を確認できます。
+      このページでは、訪問看護ステーションを介護保険で利用した場合の月額利用料（基本料金・各種加算・介護職員等処遇改善加算）を確認できます。
     </p>
 
     <section class="section">
@@ -40,13 +40,13 @@
     </section>
 
     <section class="section">
-      <h2>利用回数を選択してください</h2>
+      <h2>利用回数・加算を選択してください</h2>
       <table class="ryoukin-table">
         <thead>
           <tr>
             <th>項目</th>
             <th>区分</th>
-            <th>回数</th>
+            <th>回数/選択</th>
           </tr>
         </thead>
         <tbody>
@@ -79,6 +79,64 @@
           <tr>
             <td>3回（60分）</td>
             <td><div class="counter" data-key="riha_3"><button type="button" class="minus">−</button><span class="count">0</span><button type="button" class="plus">＋</button></div></td>
+          </tr>
+          <tr>
+            <td>緊急時訪問看護加算</td>
+            <td></td>
+            <td>
+              <div class="radio-group">
+                <label><input type="radio" name="kinkyuji" value="nashi" checked> なし</label>
+                <label><input type="radio" name="kinkyuji" value="I"> Ⅰ</label>
+                <label><input type="radio" name="kinkyuji" value="II"> Ⅱ</label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>特別管理加算</td>
+            <td></td>
+            <td>
+              <div class="radio-group">
+                <label><input type="radio" name="tokubetsu_kanri" value="nashi" checked> なし</label>
+                <label><input type="radio" name="tokubetsu_kanri" value="I"> Ⅰ</label>
+                <label><input type="radio" name="tokubetsu_kanri" value="II"> Ⅱ</label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>ターミナルケア加算</td>
+            <td></td>
+            <td><input type="checkbox" id="terminal-care" class="kasan-checkbox"></td>
+          </tr>
+          <tr>
+            <td>長時間訪問看護加算</td>
+            <td></td>
+            <td><div class="counter" data-key="chojikan"><button type="button" class="minus">−</button><span class="count">0</span><button type="button" class="plus">＋</button></div></td>
+          </tr>
+          <tr>
+            <td>退院時共同指導加算</td>
+            <td></td>
+            <td><div class="counter" data-key="taiin_kyodo"><button type="button" class="minus">−</button><span class="count">0</span><button type="button" class="plus">＋</button></div></td>
+          </tr>
+          <tr>
+            <td>訪問看護初回加算</td>
+            <td></td>
+            <td>
+              <div class="radio-group">
+                <label><input type="radio" name="shokai" value="nashi" checked> なし</label>
+                <label><input type="radio" name="shokai" value="I"> Ⅰ</label>
+                <label><input type="radio" name="shokai" value="II"> Ⅱ</label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>訪問看護・介護連携強化加算</td>
+            <td></td>
+            <td><input type="checkbox" id="renkei-kyoka" class="kasan-checkbox"></td>
+          </tr>
+          <tr>
+            <td>介護職員等処遇改善加算</td>
+            <td></td>
+            <td>自動計算（<span id="shogu-units">0</span> 単位）</td>
           </tr>
         </tbody>
       </table>

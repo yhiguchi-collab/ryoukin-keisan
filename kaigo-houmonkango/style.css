@@ -119,6 +119,12 @@ select {
   font-weight: bold;
 }
 
+.kasan-checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
 .result-table {
   width: 100%;
   border-collapse: collapse;
