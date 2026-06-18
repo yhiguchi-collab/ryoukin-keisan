@@ -60,6 +60,17 @@ select {
   border-radius: 4px;
 }
 
+.chiiki-help {
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 8px;
+  line-height: 1.6;
+}
+
+.chiiki-help a {
+  color: #4a7fd6;
+}
+
 .radio-group {
   display: flex;
   gap: 24px;
@@ -87,7 +98,7 @@ select {
 }
 
 .ryoukin-table thead th {
-  background-color: #4a7fd6;
+  background-color: #4a9d6a;
   color: #fff;
 }
 
