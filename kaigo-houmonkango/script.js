@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let totalYen = 0;
     if (chiikiItem && futanEl) {
       const wariai = Number(futanEl.value) / 10;
-      totalYen = Math.floor(totalUnits * chiikiItem.tanka * wariai);
+      totalYen = Math.ceil(totalUnits * chiikiItem.tanka * wariai);
     }
     totalYenEl.textContent = totalYen.toLocaleString();
   }
