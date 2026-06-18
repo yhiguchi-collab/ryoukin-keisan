@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   const totalYenEl = document.getElementById('total-yen');
+  const bukkaYenEl = document.getElementById('bukka-yen');
   const resetBtn = document.getElementById('reset-btn');
   const jouhouTeikyouEl = document.getElementById('jouhou-teikyou');
   const taiinKyodoEl = document.getElementById('taiin-kyodo');
@@ -85,8 +86,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const terminalCareEl = document.querySelector('input[name="terminal_care"]:checked');
     if (terminalCareEl && terminalCareEl.value !== 'nashi') totalCostFull += IRYOU_KASAN.terminal_care[terminalCareEl.value];
 
-    totalCostFull += counts.bukka_shonichi * IRYOU_KASAN.bukka_shonichi;
-    totalCostFull += counts.bukka_2kaime * IRYOU_KASAN.bukka_2kaime;
+    // 訪問看護物価対応料Ⅰ: 基本療養費の訪問日数に応じて自動付与（月の初日60円、2日目以降20円/日）
+    const houmonNissuu = counts.shukan3 + counts.shukan4;
+    const bukkaYen = houmonNissuu > 0
+      ? IRYOU_KASAN.bukka_shonichi + (houmonNissuu - 1) * IRYOU_KASAN.bukka_2kaime
+      : 0;
+    bukkaYenEl.textContent = bukkaYen.toLocaleString();
+    totalCostFull += bukkaYen;
+
     if (iryouJouhouRenkeiEl.checked) totalCostFull += IRYOU_KASAN.iryou_jouhou_renkei;
     if (iryouDxEl.checked) totalCostFull += IRYOU_KASAN.iryou_dx;
     if (renkeiShinryoHojoEl.checked) totalCostFull += IRYOU_KASAN.renkei_shinryo_hojo;
