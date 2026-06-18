@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const resetBtn = document.getElementById('reset-btn');
   const jouhouTeikyouEl = document.getElementById('jouhou-teikyou');
   const taiinKyodoEl = document.getElementById('taiin-kyodo');
-  const bukkaTaiouEl = document.getElementById('bukka-taiou');
   const iryouJouhouRenkeiEl = document.getElementById('iryou-jouhou-renkei');
   const iryouDxEl = document.getElementById('iryou-dx');
   const renkeiShinryoHojoEl = document.getElementById('renkei-shinryo-hojo');
@@ -31,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  const checkboxEls = [jouhouTeikyouEl, taiinKyodoEl, bukkaTaiouEl, iryouJouhouRenkeiEl, iryouDxEl, renkeiShinryoHojoEl, baseUp1El];
+  const checkboxEls = [jouhouTeikyouEl, taiinKyodoEl, iryouJouhouRenkeiEl, iryouDxEl, renkeiShinryoHojoEl, baseUp1El];
 
   document.querySelectorAll('input[name="futan"]').forEach((el) => el.addEventListener('change', calculate));
   document.querySelectorAll('input[name="nyuuyouji"]').forEach((el) => el.addEventListener('change', calculate));
@@ -85,7 +84,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const terminalCareEl = document.querySelector('input[name="terminal_care"]:checked');
     if (terminalCareEl && terminalCareEl.value !== 'nashi') totalCostFull += IRYOU_KASAN.terminal_care[terminalCareEl.value];
-    if (bukkaTaiouEl.checked) totalCostFull += IRYOU_KASAN.bukka_taiou;
+
+    totalCostFull += counts.bukka_shonichi * IRYOU_KASAN.bukka_shonichi;
+    totalCostFull += counts.bukka_2kaime * IRYOU_KASAN.bukka_2kaime;
     if (iryouJouhouRenkeiEl.checked) totalCostFull += IRYOU_KASAN.iryou_jouhou_renkei;
     if (iryouDxEl.checked) totalCostFull += IRYOU_KASAN.iryou_dx;
     if (renkeiShinryoHojoEl.checked) totalCostFull += IRYOU_KASAN.renkei_shinryo_hojo;
