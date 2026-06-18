@@ -1,0 +1,23 @@
+.tab-nav {
+  display: flex;
+  max-width: 720px;
+  margin: 0 auto 16px;
+  gap: 4px;
+}
+
+.tab-nav-item {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.95rem;
+  color: #666;
+  background-color: #e4e6ea;
+  border-radius: 8px 8px 0 0;
+}
+
+.tab-nav-item.active {
+  color: #fff;
+  background-color: #4a7fd6;
+}
