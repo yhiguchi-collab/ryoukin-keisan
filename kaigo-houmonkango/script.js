@@ -77,9 +77,10 @@ document.addEventListener('DOMContentLoaded', () => {
       kihonUnits += counts.kango_under60 * table.kango.under60;
       kihonUnits += counts.kango_under90 * table.kango.under90;
       // リハ行は「1回/2回/3回」の日数 × 訪問回数 × 1回あたりの単位数
+      // 3回（1日2回超）は90/100の単位数を適用
       kihonUnits += counts.riha_1 * 1 * table.riha;
       kihonUnits += counts.riha_2 * 2 * table.riha;
-      kihonUnits += counts.riha_3 * 3 * table.riha;
+      kihonUnits += counts.riha_3 * 3 * table.riha_over2;
     }
 
     // 各種加算
