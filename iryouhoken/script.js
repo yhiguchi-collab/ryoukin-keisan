@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const resetBtn = document.getElementById('reset-btn');
   const jouhouTeikyouEl = document.getElementById('jouhou-teikyou');
   const taiinKyodoEl = document.getElementById('taiin-kyodo');
-  const terminalCareEl = document.getElementById('terminal-care');
   const bukkaTaiouEl = document.getElementById('bukka-taiou');
   const iryouJouhouRenkeiEl = document.getElementById('iryou-jouhou-renkei');
   const iryouDxEl = document.getElementById('iryou-dx');
@@ -32,12 +31,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  const checkboxEls = [jouhouTeikyouEl, taiinKyodoEl, terminalCareEl, bukkaTaiouEl, iryouJouhouRenkeiEl, iryouDxEl, renkeiShinryoHojoEl, baseUp1El];
+  const checkboxEls = [jouhouTeikyouEl, taiinKyodoEl, bukkaTaiouEl, iryouJouhouRenkeiEl, iryouDxEl, renkeiShinryoHojoEl, baseUp1El];
 
   document.querySelectorAll('input[name="futan"]').forEach((el) => el.addEventListener('change', calculate));
   document.querySelectorAll('input[name="nyuuyouji"]').forEach((el) => el.addEventListener('change', calculate));
   document.querySelectorAll('input[name="taiou24"]').forEach((el) => el.addEventListener('change', calculate));
   document.querySelectorAll('input[name="tokubetsu_kanri"]').forEach((el) => el.addEventListener('change', calculate));
+  document.querySelectorAll('input[name="terminal_care"]').forEach((el) => el.addEventListener('change', calculate));
   checkboxEls.forEach((el) => el.addEventListener('change', calculate));
 
   resetBtn.addEventListener('click', () => {
@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('input[name="nyuuyouji"][value="nashi"]').checked = true;
     document.querySelector('input[name="taiou24"][value="nashi"]').checked = true;
     document.querySelector('input[name="tokubetsu_kanri"][value="nashi"]').checked = true;
+    document.querySelector('input[name="terminal_care"][value="nashi"]').checked = true;
     checkboxEls.forEach((el) => { el.checked = false; });
     document.querySelectorAll('.counter').forEach((counter) => {
       const key = counter.dataset.key;
@@ -82,7 +83,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const tokubetsuKanriEl = document.querySelector('input[name="tokubetsu_kanri"]:checked');
     if (tokubetsuKanriEl && tokubetsuKanriEl.value !== 'nashi') totalCostFull += IRYOU_KASAN.tokubetsu_kanri[tokubetsuKanriEl.value];
 
-    if (terminalCareEl.checked) totalCostFull += IRYOU_KASAN.terminal_care;
+    const terminalCareEl = document.querySelector('input[name="terminal_care"]:checked');
+    if (terminalCareEl && terminalCareEl.value !== 'nashi') totalCostFull += IRYOU_KASAN.terminal_care[terminalCareEl.value];
     if (bukkaTaiouEl.checked) totalCostFull += IRYOU_KASAN.bukka_taiou;
     if (iryouJouhouRenkeiEl.checked) totalCostFull += IRYOU_KASAN.iryou_jouhou_renkei;
     if (iryouDxEl.checked) totalCostFull += IRYOU_KASAN.iryou_dx;
