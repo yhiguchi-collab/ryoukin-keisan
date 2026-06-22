@@ -88,10 +88,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const taiou24El = document.querySelector('input[name="taiou24"]:checked');
     if (taiou24El && taiou24El.value !== 'nashi') totalCostFull += IRYOU_KASAN.taiou24;
 
-    totalCostFull += counts.fukusuumei_nin2_ippan * IRYOU_KASAN.fukusuumei.nin2_ippan;
-    totalCostFull += counts.fukusuumei_nin2_seishin * IRYOU_KASAN.fukusuumei.nin2_seishin;
-    totalCostFull += counts.fukusuumei_nin3_ippan * IRYOU_KASAN.fukusuumei.nin3_ippan;
-    totalCostFull += counts.fukusuumei_nin3_seishin * IRYOU_KASAN.fukusuumei.nin3_seishin;
+    totalCostFull += counts.fukusuumei_nin2_kangoshi * IRYOU_KASAN.fukusuumei.nin2_kangoshi;
+    totalCostFull += counts.fukusuumei_nin2_hojo_1 * IRYOU_KASAN.fukusuumei.nin2_hojo_1;
+    totalCostFull += counts.fukusuumei_nin2_hojo_2 * IRYOU_KASAN.fukusuumei.nin2_hojo_2;
+    totalCostFull += counts.fukusuumei_nin2_hojo_3 * IRYOU_KASAN.fukusuumei.nin2_hojo_3;
+    totalCostFull += counts.fukusuumei_nin3_kangoshi * IRYOU_KASAN.fukusuumei.nin3_kangoshi;
+    totalCostFull += counts.fukusuumei_nin3_hojo_1 * IRYOU_KASAN.fukusuumei.nin3_hojo_1;
+    totalCostFull += counts.fukusuumei_nin3_hojo_2 * IRYOU_KASAN.fukusuumei.nin3_hojo_2;
+    totalCostFull += counts.fukusuumei_nin3_hojo_3 * IRYOU_KASAN.fukusuumei.nin3_hojo_3;
 
     if (taiinKyodoEl.checked) totalCostFull += IRYOU_KASAN.taiin_kyodo;
     if (taiinShienEl.checked) totalCostFull += IRYOU_KASAN.taiin_shien;

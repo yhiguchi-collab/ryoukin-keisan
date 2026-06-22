@@ -93,6 +93,13 @@ h1 {
   color: #fff;
 }
 
+.counter-label {
+  display: block;
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 4px;
+}
+
 .counter {
   display: flex;
   align-items: center;
