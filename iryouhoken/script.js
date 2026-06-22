@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const totalYenEl = document.getElementById('total-yen');
-  const kanriYenEl = document.getElementById('kanri-yen');
+  const kanriShonichiYenEl = document.getElementById('kanri-shonichi-yen');
+  const kanriNikaimeYenEl = document.getElementById('kanri-2kaime-yen');
   const bukkaYenEl = document.getElementById('bukka-yen');
   const resetBtn = document.getElementById('reset-btn');
   const jouhouTeikyouEl = document.getElementById('jouhou-teikyou');
@@ -66,11 +67,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 訪問看護管理療養費: 基本療養費の訪問日数に応じて自動付与（月の初日7,710円、2日目以降3,010円/日）
     const houmonNissuu = counts.shukan3 + counts.shukan4;
-    const kanriYen = houmonNissuu > 0
-      ? IRYOU_KIHON.kanri_shonichi + (houmonNissuu - 1) * IRYOU_KIHON.kanri_2kaime
-      : 0;
-    kanriYenEl.textContent = kanriYen.toLocaleString();
-    totalCostFull += kanriYen;
+    const kanriShonichiYen = houmonNissuu > 0 ? IRYOU_KIHON.kanri_shonichi : 0;
+    const kanriNikaimeYen = houmonNissuu > 0 ? (houmonNissuu - 1) * IRYOU_KIHON.kanri_2kaime : 0;
+    kanriShonichiYenEl.textContent = `${kanriShonichiYen.toLocaleString()}円`;
+    kanriNikaimeYenEl.textContent = `${kanriNikaimeYen.toLocaleString()}円`;
+    totalCostFull += kanriShonichiYen + kanriNikaimeYen;
 
     if (jouhouTeikyouEl.checked) totalCostFull += IRYOU_KASAN.jouhou_teikyou;
 
