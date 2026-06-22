@@ -175,4 +175,55 @@ h1 {
   .container {
     padding: 16px 12px 24px;
   }
+
+  .table-scroll {
+    overflow-x: visible;
+  }
+
+  .ryoukin-table {
+    min-width: 0;
+    table-layout: fixed;
+    font-size: 0.7rem;
+  }
+
+  .ryoukin-table th,
+  .ryoukin-table td {
+    padding: 4px 2px;
+    word-break: break-word;
+  }
+
+  .ryoukin-table th:nth-child(1),
+  .ryoukin-table td:nth-child(1) {
+    width: 32%;
+  }
+
+  .ryoukin-table th:nth-child(2),
+  .ryoukin-table td:nth-child(2) {
+    width: 18%;
+  }
+
+  .ryoukin-table th:nth-child(3),
+  .ryoukin-table td:nth-child(3) {
+    width: 50%;
+  }
+
+  .ryoukin-table td:first-child {
+    white-space: normal;
+    font-size: 0.7rem;
+  }
+
+  .radio-group {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .counter button {
+    width: 22px;
+    height: 22px;
+    font-size: 0.85rem;
+  }
+
+  .counter .count {
+    min-width: 1.5em;
+  }
 }
