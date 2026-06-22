@@ -43,7 +43,7 @@ const IRYOU_KASAN = {
   bukka_2kaime: 20,    // 訪問看護物価対応料Ⅰ（2日目以降）
   iryou_jouhou_renkei: 1000, // 訪問看護医療情報連携加算（月額）
   iryou_dx: 50,               // 訪問看護医療DX情報活用加算（月額）
-  renkei_shinryo_hojo: 2650,  // 訪問看護遠隔診療加算（月額）
+  renkei_shinryo_hojo: 2650,  // 訪問看護遠隔診療補助料（月額）
   base_up_1: 1050,             // 訪問看護ベースアップ評価料（Ⅰ）（R8区分6〜R9.5の単価）
   base_up_2: 510,               // 訪問看護ベースアップ評価料（Ⅱ）
 };
