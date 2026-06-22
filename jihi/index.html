@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>自費 訪問看護 料金シミュレーション</title>
+  <link rel="stylesheet" href="../shared/tabs.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="tab-nav">
+    <a href="../kaigo-houmonkango/" class="tab-nav-item">介護保険</a>
+    <a href="../iryouhoken/" class="tab-nav-item">医療保険</a>
+    <a href="../jihi/" class="tab-nav-item active">自費</a>
+  </nav>
+  <div class="container">
+    <h1>自費 訪問看護 料金シミュレーション</h1>
+    <p class="subtitle">令和8年6月改定対応版</p>
+
+    <p class="description">
+      このページでは、訪問看護ステーションを保険外（自費）で利用した場合の利用料を確認できます。
+    </p>
+
+    <section class="section">
+      <h2>利用回数を選択してください</h2>
+      <table class="ryoukin-table">
+        <thead>
+          <tr>
+            <th>項目</th>
+            <th>区分</th>
+            <th>回数/選択</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="2">保険外自費訪問看護</td>
+            <td>30分以内</td>
+            <td><div class="counter" data-key="base_30min"><button type="button" class="minus">−</button><span class="count">0</span><button type="button" class="plus">＋</button></div></td>
+          </tr>
+          <tr>
+            <td>延長（30分超えるごと）</td>
+            <td><div class="counter" data-key="extension_30min"><button type="button" class="minus">−</button><span class="count">0</span><button type="button" class="plus">＋</button></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section result">
+      <table class="result-table">
+        <tr class="total-row">
+          <th>利用料</th>
+          <td><span id="total-yen">0</span> 円</td>
+        </tr>
+      </table>
+    </section>
+
+    <button type="button" id="reset-btn" class="reset-btn">リセット</button>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
