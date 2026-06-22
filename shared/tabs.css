@@ -1,3 +1,17 @@
+.site-header {
+  max-width: 720px;
+  margin: 0 auto 12px;
+  text-align: center;
+}
+
+.site-name {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: bold;
+  color: #2d5fa3;
+  letter-spacing: 0.05em;
+}
+
 .tab-nav {
   display: flex;
   max-width: 720px;
@@ -23,6 +37,10 @@
 }
 
 @media (max-width: 480px) {
+  .site-name {
+    font-size: 0.95rem;
+  }
+
   .tab-nav {
     margin: 0 auto 8px;
     gap: 2px;
