@@ -88,6 +88,11 @@ h1 {
   font-size: 0.8rem;
 }
 
+.ryoukin-table td.sub-label {
+  white-space: nowrap;
+  font-size: 0.75rem;
+}
+
 .ryoukin-table thead th {
   background-color: #4a9d6a;
   color: #fff;
