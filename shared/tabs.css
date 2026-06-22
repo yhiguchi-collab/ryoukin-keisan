@@ -21,3 +21,15 @@
   color: #fff;
   background-color: #4a7fd6;
 }
+
+@media (max-width: 480px) {
+  .tab-nav {
+    margin: 0 auto 8px;
+    gap: 2px;
+  }
+
+  .tab-nav-item {
+    padding: 8px 2px;
+    font-size: 0.8rem;
+  }
+}
