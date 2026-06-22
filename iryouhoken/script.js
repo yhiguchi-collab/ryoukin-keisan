@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const iryouJouhouRenkeiEl = document.getElementById('iryou-jouhou-renkei');
   const renkeiShinryoHojoEl = document.getElementById('renkei-shinryo-hojo');
   const baseUp1El = document.getElementById('base-up-1');
+  const baseUp2El = document.getElementById('base-up-2');
 
   // 利用回数カウンターの初期化
   const counts = {};
@@ -34,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  const checkboxEls = [jouhouTeikyouEl, taiinKyodoEl, taiinShienEl, iryouJouhouRenkeiEl, renkeiShinryoHojoEl, baseUp1El];
+  const checkboxEls = [jouhouTeikyouEl, taiinKyodoEl, taiinShienEl, iryouJouhouRenkeiEl, renkeiShinryoHojoEl, baseUp1El, baseUp2El];
 
   document.querySelectorAll('input[name="futan"]').forEach((el) => el.addEventListener('change', calculate));
   document.querySelectorAll('input[name="nyuuyouji"]').forEach((el) => el.addEventListener('change', calculate));
@@ -111,6 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (renkeiShinryoHojoEl.checked) totalCostFull += IRYOU_KASAN.renkei_shinryo_hojo;
     if (baseUp1El.checked) totalCostFull += IRYOU_KASAN.base_up_1;
+    if (baseUp2El.checked) totalCostFull += IRYOU_KASAN.base_up_2;
 
     let totalYen = 0;
     if (futanEl) {
