@@ -88,6 +88,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const taiou24El = document.querySelector('input[name="taiou24"]:checked');
     if (taiou24El && taiou24El.value !== 'nashi') totalCostFull += IRYOU_KASAN.taiou24;
 
+    totalCostFull += counts.fukusuumei_nin2_ippan * IRYOU_KASAN.fukusuumei.nin2_ippan;
+    totalCostFull += counts.fukusuumei_nin2_seishin * IRYOU_KASAN.fukusuumei.nin2_seishin;
+    totalCostFull += counts.fukusuumei_nin3_ippan * IRYOU_KASAN.fukusuumei.nin3_ippan;
+    totalCostFull += counts.fukusuumei_nin3_seishin * IRYOU_KASAN.fukusuumei.nin3_seishin;
+
     if (taiinKyodoEl.checked) totalCostFull += IRYOU_KASAN.taiin_kyodo;
     if (taiinShienEl.checked) totalCostFull += IRYOU_KASAN.taiin_shien;
 
