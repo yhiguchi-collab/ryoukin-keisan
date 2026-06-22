@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const resetBtn = document.getElementById('reset-btn');
   const jouhouTeikyouEl = document.getElementById('jouhou-teikyou');
   const taiinKyodoEl = document.getElementById('taiin-kyodo');
+  const taiinShienEl = document.getElementById('taiin-shien');
   const iryouJouhouRenkeiEl = document.getElementById('iryou-jouhou-renkei');
   const renkeiShinryoHojoEl = document.getElementById('renkei-shinryo-hojo');
   const baseUp1El = document.getElementById('base-up-1');
@@ -33,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  const checkboxEls = [jouhouTeikyouEl, taiinKyodoEl, iryouJouhouRenkeiEl, renkeiShinryoHojoEl, baseUp1El];
+  const checkboxEls = [jouhouTeikyouEl, taiinKyodoEl, taiinShienEl, iryouJouhouRenkeiEl, renkeiShinryoHojoEl, baseUp1El];
 
   document.querySelectorAll('input[name="futan"]').forEach((el) => el.addEventListener('change', calculate));
   document.querySelectorAll('input[name="nyuuyouji"]').forEach((el) => el.addEventListener('change', calculate));
@@ -87,6 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (taiou24El && taiou24El.value !== 'nashi') totalCostFull += IRYOU_KASAN.taiou24;
 
     if (taiinKyodoEl.checked) totalCostFull += IRYOU_KASAN.taiin_kyodo;
+    if (taiinShienEl.checked) totalCostFull += IRYOU_KASAN.taiin_shien;
 
     const tokubetsuKanriEl = document.querySelector('input[name="tokubetsu_kanri"]:checked');
     if (tokubetsuKanriEl && tokubetsuKanriEl.value !== 'nashi') totalCostFull += IRYOU_KASAN.tokubetsu_kanri[tokubetsuKanriEl.value];
