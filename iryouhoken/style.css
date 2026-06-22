@@ -83,7 +83,7 @@ h1 {
   text-align: center;
 }
 
-.ryoukin-table td:first-child {
+.ryoukin-table td.item-name {
   white-space: nowrap;
   font-size: 0.8rem;
 }
