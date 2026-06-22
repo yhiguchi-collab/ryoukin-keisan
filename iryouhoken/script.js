@@ -4,14 +4,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const kanriNikaimeKaisuuEl = document.getElementById('kanri-2kaime-kaisuu');
   const bukkaYenEl = document.getElementById('bukka-yen');
   const iryouDxYenEl = document.getElementById('iryou-dx-yen');
+  const baseUp1YenEl = document.getElementById('base-up-1-yen');
+  const baseUp2YenEl = document.getElementById('base-up-2-yen');
   const resetBtn = document.getElementById('reset-btn');
   const jouhouTeikyouEl = document.getElementById('jouhou-teikyou');
   const taiinKyodoEl = document.getElementById('taiin-kyodo');
   const taiinShienEl = document.getElementById('taiin-shien');
   const iryouJouhouRenkeiEl = document.getElementById('iryou-jouhou-renkei');
   const renkeiShinryoHojoEl = document.getElementById('renkei-shinryo-hojo');
-  const baseUp1El = document.getElementById('base-up-1');
-  const baseUp2El = document.getElementById('base-up-2');
 
   // 利用回数カウンターの初期化
   const counts = {};
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  const checkboxEls = [jouhouTeikyouEl, taiinKyodoEl, taiinShienEl, iryouJouhouRenkeiEl, renkeiShinryoHojoEl, baseUp1El, baseUp2El];
+  const checkboxEls = [jouhouTeikyouEl, taiinKyodoEl, taiinShienEl, iryouJouhouRenkeiEl, renkeiShinryoHojoEl];
 
   document.querySelectorAll('input[name="futan"]').forEach((el) => el.addEventListener('change', calculate));
   document.querySelectorAll('input[name="nyuuyouji"]').forEach((el) => el.addEventListener('change', calculate));
@@ -120,8 +120,11 @@ document.addEventListener('DOMContentLoaded', () => {
     totalCostFull += IRYOU_KASAN.iryou_dx;
 
     if (renkeiShinryoHojoEl.checked) totalCostFull += IRYOU_KASAN.renkei_shinryo_hojo;
-    if (baseUp1El.checked) totalCostFull += IRYOU_KASAN.base_up_1;
-    if (baseUp2El.checked) totalCostFull += IRYOU_KASAN.base_up_2;
+
+    // 訪問看護ベースアップ評価料（Ⅰ・Ⅱ）: 全員に自動付与（1回のみ算定）
+    baseUp1YenEl.textContent = IRYOU_KASAN.base_up_1.toLocaleString();
+    baseUp2YenEl.textContent = IRYOU_KASAN.base_up_2.toLocaleString();
+    totalCostFull += IRYOU_KASAN.base_up_1 + IRYOU_KASAN.base_up_2;
 
     let totalYen = 0;
     if (futanEl) {
